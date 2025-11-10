@@ -167,7 +167,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 
     // Draw nodes
     ctx.globalAlpha = 0.9;
-    ctx.fillStyle = 'rgb(209, 213, 219)'; // gray-300 - lighter for better visibility
+    ctx.fillStyle = 'rgb(107, 114, 128)'; // gray-500 - darker dots
 
     nodes.forEach((node) => {
       ctx.beginPath();
@@ -175,15 +175,15 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
       ctx.fill();
       
       // Add a subtle glow effect
-      ctx.globalAlpha = 0.3;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.globalAlpha = 0.2;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
       ctx.beginPath();
       ctx.arc(node.x, node.y, node.radius + 1, 0, Math.PI * 2);
       ctx.fill();
       
       // Reset for next node
       ctx.globalAlpha = 0.9;
-      ctx.fillStyle = 'rgb(209, 213, 219)';
+      // ctx.fillStyle = 'rgb(107, 114, 128)';
     });
 
     ctx.globalAlpha = 1;

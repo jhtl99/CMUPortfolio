@@ -232,3 +232,19 @@
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg;
   }
 }
+
+/* Smooth scroll and hide scrollbar */
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
