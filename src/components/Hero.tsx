@@ -5,10 +5,10 @@ import AnimatedBackground from "./AnimatedBackground";
 
 // Assume 4 headshots available
 const headshots = [
-  "/assets/headshots/headshot_1.png",
-  "/assets/headshots/headshot_2.png",
-  "/assets/headshots/headshot_3.png",
-  "/assets/headshots/headshot_4.png",
+  `${import.meta.env.BASE_URL}assets/headshots/headshot_1.png`,
+  `${import.meta.env.BASE_URL}assets/headshots/headshot_2.png`,
+  `${import.meta.env.BASE_URL}assets/headshots/headshot_3.png`,
+  `${import.meta.env.BASE_URL}assets/headshots/headshot_4.png`,
 ];
 
 const Hero = () => {
