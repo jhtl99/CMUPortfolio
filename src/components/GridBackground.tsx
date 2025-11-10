@@ -49,8 +49,8 @@ const WarpedGrid: React.FC<WarpedGridProps> = ({
         const influence = Math.max(0, 1 - dist / warpRadius);
         const offsetX = dx / dist * warpStrength * influence || 0;
         const offsetY = dy / dist * warpStrength * influence || 0;
-        const warpedX = x + offsetX + Math.sin(time + i * 0.5) * 20;
-        const warpedY = y + offsetY + Math.cos(time + j * 0.5) * 20;
+        const warpedX = x + offsetX + Math.sin(time + i * 0.5) * 10;
+        const warpedY = y + offsetY + Math.cos(time + j * 0.5) * 10;
         if (j === 0) ctx.moveTo(warpedX, warpedY);
         else ctx.lineTo(warpedX, warpedY);
       }
@@ -69,8 +69,8 @@ const WarpedGrid: React.FC<WarpedGridProps> = ({
         const influence = Math.max(0, 1 - dist / warpRadius);
         const offsetX = dx / dist * warpStrength * influence || 0;
         const offsetY = dy / dist * warpStrength * influence || 0;
-        const warpedX = x + offsetX + Math.sin(time + i * 0.3) * 20;
-        const warpedY = y + offsetY + Math.cos(time + j * 0.3) * 20;
+        const warpedX = x + offsetX + Math.sin(time + i * 0.3) * 10;
+        const warpedY = y + offsetY - Math.cos(time + j * 0.3) * 10;
         if (i === 0) ctx.moveTo(warpedX, warpedY);
         else ctx.lineTo(warpedX, warpedY);
       }
