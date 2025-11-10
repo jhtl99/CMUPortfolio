@@ -5,7 +5,8 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import WarpedGrid from "@/components/GridBackground";
+
 
 const Index = () => {
   const sections = ["about", "skills", "projects", "contact"];
@@ -35,7 +36,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen text-gray-200 overflow-hidden">
       {/* ✅ Fixed gradient + animated background */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0b0b10] via-[#0d1117] to-[#101018]">
+      {/* <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0b0b10] via-[#0d1117] to-[#101018]">
         <AnimatedBackground
           nodeCount={120}
           maxDistance={400}
@@ -43,6 +44,10 @@ const Index = () => {
           mouseRepelDistance={250}
           mouseRepelStrength={5}
         />
+      </div> */}
+
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0b0b10] via-[#0d1117] to-[#101018]">
+      <WarpedGrid spacing={80} warpStrength={30} warpRadius={250} />
       </div>
 
       {/* ✅ Fixed split layout */}
