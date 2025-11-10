@@ -7,48 +7,45 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/95 backdrop-blur-md shadow-lg' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/40 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <button
             onClick={scrollToTop}
-            className={`text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-primary' : 'text-white'
-            }`}
+            className="text-xl md:text-2xl font-semibold text-white tracking-tight"
           >
-            Jayden's Online Portfolio
+            Jayden
           </button>
 
           {/* Desktop Navigation */}
@@ -57,26 +54,24 @@ const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`transition-colors font-medium hover:text-secondary ${
-                  isScrolled ? 'text-gray-medium hover:text-secondary' : 'text-white/90 hover:text-white'
-                }`}
+                className="text-gray-300 hover:text-white transition-colors font-medium"
               >
                 {item.name}
               </button>
             ))}
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              variant={isScrolled ? 'default' : 'outline'}
-              className={isScrolled ? 'bg-secondary hover:bg-secondary/90' : 'border-white text-black hover:bg-white hover:text-primary'}
+            {/* <Button
+              onClick={() => scrollToSection("#contact")}
+              variant="outline"
+              className="border-gray-400/40 text-gray-200 hover:bg-white/10 hover:text-white transition"
             >
               Get In Touch
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden ${isScrolled ? 'text-primary' : 'text-white'}`}
+            className="md:hidden text-gray-200"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -84,23 +79,23 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-background/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-lg animate-fade-in">
+          <div className="md:hidden bg-black/60 backdrop-blur-md rounded-lg mt-2 p-4 animate-fade-in border border-white/10">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-gray-medium hover:text-secondary transition-colors font-medium"
+                  className="text-left text-gray-300 hover:text-white transition-colors font-medium"
                 >
                   {item.name}
                 </button>
               ))}
-              <Button
-                onClick={() => scrollToSection('#contact')}
-                className="bg-secondary hover:bg-secondary/90 mt-4"
+              {/* <Button
+                onClick={() => scrollToSection("#contact")}
+                className="bg-white/10 hover:bg-white/20 text-white transition"
               >
                 Get In Touch
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}

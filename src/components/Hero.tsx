@@ -7,8 +7,8 @@ import AnimatedBackground from "./AnimatedBackground";
 const headshots = [
   `${import.meta.env.BASE_URL}assets/headshots/headshot_1.png`,
   `${import.meta.env.BASE_URL}assets/headshots/headshot_2.png`,
-  `${import.meta.env.BASE_URL}assets/headshots/headshot_3.png`,
-  `${import.meta.env.BASE_URL}assets/headshots/headshot_4.png`,
+  // `${import.meta.env.BASE_URL}assets/headshots/headshot_3.png`,
+  // `${import.meta.env.BASE_URL}assets/headshots/headshot_4.png`,
 ];
 
 const Hero = () => {
@@ -27,9 +27,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0b0b10] via-[#0d1117] to-[#101018] overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
       {/* Subtle animated background */}
-      <div className="absolute inset-0 opacity-40">
+      {/* <div className="absolute inset-0 opacity-40">
         <AnimatedBackground
           nodeCount={100}
           maxDistance={400}
@@ -37,7 +38,7 @@ const Hero = () => {
           mouseRepelDistance={300}
           mouseRepelStrength={5}
         />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
@@ -84,7 +85,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             onClick={scrollToAbout}
             className="text-gray-400 hover:text-white transition-colors p-2"
@@ -92,7 +93,7 @@ const Hero = () => {
           >
             <ChevronDown size={32} />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
